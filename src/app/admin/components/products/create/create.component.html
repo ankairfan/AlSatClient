@@ -1,0 +1,24 @@
+<mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Stok Adı</mat-label>
+    <input #txtName matInput placeholder="Stok adı giriniz" class="product-ayar">
+</mat-form-field>
+
+<mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Adet</mat-label>
+    <input #txtStock type="number" min="0" matInput placeholder="Adet giriniz" class="product-ayar">
+</mat-form-field>
+
+<mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Fiyat</mat-label>
+    <input #txtPrice type="number" min="0" matInput placeholder="Fiyat giriniz" class="product-ayar">
+</mat-form-field>
+
+<mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Açıklama</mat-label>
+    <input #txtDescription matInput placeholder="Açıklama giriniz" class="product-ayar">
+</mat-form-field>
+<!-- <button class="btn" mat-raised-button color="warn">Vazgeç</button> -->
+<button mat-raised-button color="primary" (click)="create(txtName, txtStock, txtPrice, txtDescription)">Kaydet</button>
+
+<hr>
+<app-file-upload [options]="fileUploadOptions"></app-file-upload>
