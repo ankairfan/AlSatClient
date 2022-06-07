@@ -1,3 +1,5 @@
+import { MatDialogModule } from '@angular/material/dialog';
+import { DialogModule } from './../../../dialogs/dialog/dialog.module';
 import { FileUploadModule } from './../../../services/common/file-upload/file-upload.module';
 import { DeleteDirective } from './../../../directives/admin/delete.directive';
 import { RouterModule } from '@angular/router';
@@ -12,7 +14,6 @@ import {MatInputModule} from '@angular/material/input';
 import {MatButtonModule} from '@angular/material/button';
 import {MatTableModule} from '@angular/material/table';
 import {MatPaginatorModule} from '@angular/material/paginator';
-import {MatDialogModule} from '@angular/material/dialog';
 
 
 
@@ -21,7 +22,7 @@ import {MatDialogModule} from '@angular/material/dialog';
     ProductsComponent,
     CreateComponent,
     ListComponent,
-    DeleteDirective,
+    DeleteDirective
 
   ],
   imports: [
@@ -35,8 +36,12 @@ import {MatDialogModule} from '@angular/material/dialog';
     MatButtonModule,
     MatTableModule,
     MatPaginatorModule,
-    MatDialogModule,
-    FileUploadModule
+    FileUploadModule,
+    DialogModule
+
+
+
+
 
 
   ]

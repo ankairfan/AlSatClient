@@ -1,6 +1,7 @@
+import { MatDialogModule } from '@angular/material/dialog';
 import { UiModule } from './ui/ui.module';
 import { AdminModule } from './admin/admin.module';
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
@@ -19,22 +20,26 @@ import { HttpClientModule } from '@angular/common/http';
 
 
 
+
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
-    AdminModule,
-    UiModule,
+    AdminModule, UiModule,
     ToastrModule.forRoot(),
     NgxSpinnerModule,
-    HttpClientModule
+    HttpClientModule,
+    MatDialogModule
 
   ],
   providers: [
     {provide:"baseUrl", useValue:" https://localhost:7121/api", multi:true}
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  schemas: [
+    CUSTOM_ELEMENTS_SCHEMA  ]
 })
+
 export class AppModule { }
 

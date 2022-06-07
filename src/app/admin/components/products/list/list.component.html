@@ -44,15 +44,21 @@
         </ng-container> -->
 
         <!-- edit Column -->
+        <ng-container matColumnDef="photo">
+            <th mat-header-cell *matHeaderCellDef> Resim</th>
+            <td mat-cell *matCellDef="let element"> <img style="cursor: pointer;" (click)="addProductImages(element.id)" src="assets/immage/camera-icon.png" width="25px" height="25px"></td>
+        </ng-container>
+
+        <!-- edit Column -->
         <ng-container matColumnDef="edit">
             <th mat-header-cell *matHeaderCellDef> Düzelt </th>
-            <td mat-cell *matCellDef="let element"> <img src="assets/img/edit.png" width="25px" height="25px"></td>
+            <td mat-cell *matCellDef="let element"> <img style="cursor: pointer;" src="assets/immage/edit.png" width="25px" height="25px"></td>
         </ng-container>
 
         <!-- delete Column -->
         <ng-container matColumnDef="delete">
             <th mat-header-cell *matHeaderCellDef> Sil </th>
-            <td mat-cell *matCellDef="let element" appDelete [id]="element.id" (callback)="getProducts()" controller="products"> </td>
+            <td mat-cell *matCellDef="let element" appDelete [id]="element.id" (callback)="getProducts()" controller="products"></td>
         </ng-container>
 
 

@@ -29,30 +29,37 @@ export class ProductService {
         errorCallBack(message);
       });
 
-    }
+  }
 
-    async read(page: number = 0, size: number = 5, successCallBack?: () => void, errorCallBack?: (errorMessage: string) => void): Promise<{ totalCount: number; products: List_Product[] }> {
-      const promiseData: Promise<{ totalCount: number; products: List_Product[] }> = this.httpClientService.get<{ totalCount: number; products: List_Product[] }>({
-        controller: "products",
-        queryString: `page=${page}&size=${size}`
-      }).toPromise();
+  async read(page: number = 0, size: number = 5, successCallBack?: () => void, errorCallBack?: (errorMessage: string) => void): Promise<{ totalCount: number; products: List_Product[] }> {
+    const promiseData: Promise<{ totalCount: number; products: List_Product[] }> = this.httpClientService.get<{ totalCount: number; products: List_Product[] }>({
+      controller: "products",
+      queryString: `page=${page}&size=${size}`
+    }).toPromise();
 
-      promiseData.then(d=> successCallBack())
-      .catch((errorResponse: HttpErrorResponse)=>errorCallBack(errorResponse.message))
+    promiseData.then(d => successCallBack())
+      .catch((errorResponse: HttpErrorResponse) => errorCallBack(errorResponse.message))
 
-     return await promiseData;
-    }
+    return await promiseData;
+  }
 
-    async   delete(id:string){
-   const deleteoObsservable: Observable<any>= this.httpClientService.delete<any>({
-        controller:"products"
-      },id);
+  async delete(id: string) {
+    const deleteoObsservable: Observable<any> = this.httpClientService.delete<any>({
+      controller: "products"
+    }, id);
 
-     await firstValueFrom(deleteoObsservable)
-
-    }
+    await firstValueFrom(deleteoObsservable)
 
   }
+
+  readImages(id: string) {
+    this.httpClientService.get({
+      action:"GetProductImages",
+      controller:"products"
+    }, id)
+  }
+
+}
 
 
 
